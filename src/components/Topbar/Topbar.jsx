@@ -2,30 +2,41 @@ import "./Topbar.scss";
 
 import {
   Bell,
-  Settings
+  CalendarDays,
+  Flame,
 } from "lucide-react";
 
-// Assuming you save your provided image file as profile-avatar.png in your assets directory
-import profileImg from "../../assets/hero.png"; 
+import profileImg from "../../assets/hero.png";
 
 const Topbar = () => {
   return (
     <header className="topbar">
 
-      <div className="topbar__left">
-        {/* <h2>Dashboard</h2> */}
-      </div>
+      <div className="topbar__left"></div>
 
       <div className="topbar__right">
 
+        {/* Calendar */}
         <button className="icon-btn">
-          <Bell size={20} />
+          <CalendarDays size={20} />
         </button>
 
-        {/* <button className="icon-btn">
-          <Settings size={20} />
-        </button> */}
+        {/* Daily Streak */}
+        <div className="streak-card">
+          <Flame size={18} />
+          <div>
+            <strong>18</strong>
+            <span>Day Streak</span>
+          </div>
+        </div>
 
+        {/* Notifications */}
+        <button className="icon-btn notification-btn">
+          <Bell size={20} />
+          <span className="notification-badge">3</span>
+        </button>
+
+        {/* Profile */}
         <div className="profile">
           <img
             src={profileImg}
@@ -34,7 +45,7 @@ const Topbar = () => {
 
           <div>
             <h4>Taran</h4>
-            <span>Computer Science</span>
+            <span>CSE • III Year</span>
           </div>
         </div>
 
