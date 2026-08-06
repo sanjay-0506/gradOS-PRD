@@ -1,0 +1,129 @@
+.topbar {
+  height: 80px;
+
+  background: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 32px;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  box-sizing: border-box;
+}
+
+/* Search */
+
+.topbar__search {
+  width: 420px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: #f7f8fa;
+
+  padding: 0 18px;
+
+  border-radius: 12px;
+
+  transition: .3s;
+}
+
+.topbar__search:focus-within {
+  border: 1px solid #0f8b8d;
+  background: white;
+}
+
+.topbar__search svg {
+  color: #94a3b8;
+}
+
+.topbar__search input {
+  flex: 1;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  font-size: 15px;
+
+  color: #334155;
+}
+
+/* Right Side */
+
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Icon Buttons */
+
+.icon-btn {
+  width: 46px;
+  height: 46px;
+
+  border-radius: 50%;
+
+  border: none;
+
+  background: #f7f8fa;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  transition: .25s;
+}
+
+.icon-btn:hover {
+  background: #0f8b8d;
+  color: white;
+
+  transform: translateY(-2px);
+}
+
+/* Profile */
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  cursor: pointer;
+}
+
+.profile img {
+  width: 46px;
+  height: 46px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+.profile h4 {
+  margin: 0;
+
+  font-size: 15px;
+
+  color: #1e293b;
+}
+
+.profile span {
+  font-size: 13px;
+
+  color: #64748b;
+}
