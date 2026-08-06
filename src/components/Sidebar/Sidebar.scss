@@ -1,34 +1,49 @@
 .sidebar {
-  width: 260px;
+  width: 280px;
   height: 100vh;
-  background: #ffffff;
-  border-right: 1px solid #e5e7eb;
   position: fixed;
   top: 0;
   left: 0;
-
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
-
-  padding: 24px 18px;
-
+  padding: 20px 16px;
   box-sizing: border-box;
+  overflow-y: auto;
+  z-index: 1000;
 }
 
-/* ---------- Logo ---------- */
-
+/* Logo */
 .sidebar__logo {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 15px;
+  margin-bottom: 40px;
+  min-height: 50px;
+}
 
-  margin-bottom: 50px;
+.logo-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #0f8b8d, #157f83);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  white-space: nowrap;
 
   h2 {
-    font-size: 22px;
     margin: 0;
+    font-size: 22px;
     color: #0f172a;
-    font-weight: 700;
   }
 
   span {
@@ -37,70 +52,126 @@
   }
 }
 
-.logo-box {
-  width: 48px;
-  height: 48px;
-
-  border-radius: 14px;
-
-  background: linear-gradient(135deg, #0f8b8d, #157f83);
-
-  color: white;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 22px;
-  font-weight: bold;
-}
-
-/* ---------- Menu ---------- */
-
+/* Menu Layout */
 .sidebar__menu {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
+.sidebar__bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 18px;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Menu Items */
 .menu-item {
   width: 100%;
-
+  height: 52px;
   display: flex;
   align-items: center;
-  gap: 15px;
-
-  padding: 14px 18px;
-
   border: none;
   background: transparent;
-
   border-radius: 14px;
-
   cursor: pointer;
-
   color: #475569;
-
-  font-size: 15px;
-  font-weight: 500;
-
-  transition: all 0.25s ease;
+  transition: background 0.25s, color 0.25s;
+  padding: 0 16px;
+  text-align: left;
+  gap: 15px;
 
   svg {
     flex-shrink: 0;
   }
+
+  &:hover {
+    background: #eef8f8;
+    color: #0f8b8d;
+  }
+
+  &.active {
+    background: #0f8b8d;
+    color: white;
+    box-shadow: 0 10px 25px rgba(15, 139, 141, 0.25);
+  }
 }
 
-.menu-item:hover {
-  background: #eef8f8;
-  color: #0f8b8d;
-
-  transform: translateX(4px);
+/* Dropdown Alignment */
+.dropdown {
+  display: flex;
+  flex-direction: column;
 }
 
-.menu-item.active {
-  background: #0f8b8d;
-  color: white;
+.dropdown-title {
+  .industry-text {
+    flex: 1;
+  }
 
-  box-shadow: 0 10px 25px rgba(15, 139, 141, 0.25);
+  .dropdown-arrow {
+    margin-left: auto;
+  }
 }
+
+/* Submenu System */
+.submenu {
+  margin-left: 24px;
+  border-left: 2px solid #e2e8f0;
+  padding-left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.submenu-item {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #64748b;
+  border-radius: 10px;
+  transition: background 0.25s, color 0.25s;
+  padding-left: 10px;
+  text-align: left;
+
+  &:hover {
+    background: #eef8f8;
+    color: #0f8b8d;
+  }
+}
+
+/* Scrollbar styling for long menus */
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+
+
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  
+  /* Stops the layout from squeezing the sidebar width if content gets heavy */
+  flex-shrink: 0; 
+}
+
+/* ... Keep all your inner logo, menu-item, and submenu rules exactly the same ... */

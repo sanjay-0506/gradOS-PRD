@@ -1,24 +1,19 @@
 import "./Topbar.scss";
 
 import {
-  Search,
   Bell,
   Settings
 } from "lucide-react";
+
+// Assuming you save your provided image file as profile-avatar.png in your assets directory
+import profileImg from "../../assets/hero.png"; 
 
 const Topbar = () => {
   return (
     <header className="topbar">
 
-      <div className="topbar__search">
-
-        <Search size={18} />
-
-        <input
-          type="text"
-          placeholder="Search insights, modules or careers..."
-        />
-
+      <div className="topbar__left">
+        {/* <h2>Dashboard</h2> */}
       </div>
 
       <div className="topbar__right">
@@ -27,22 +22,20 @@ const Topbar = () => {
           <Bell size={20} />
         </button>
 
-        <button className="icon-btn">
+        {/* <button className="icon-btn">
           <Settings size={20} />
-        </button>
+        </button> */}
 
         <div className="profile">
-
           <img
-            src="https://i.pravatar.cc/150?img=12"
-            alt="Profile"
+            src={profileImg}
+            alt="Profile Avatar"
           />
 
           <div>
             <h4>Taran</h4>
             <span>Computer Science</span>
           </div>
-
         </div>
 
       </div>
