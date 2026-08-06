@@ -1,42 +1,37 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
 .dashboard-layout {
-  display: flex;
-  min-height: 100vh;
-  background: #f5f7fb;
+  width: 100%;
+  height: 100vh;
+  background: #f8fafc;
 }
 
 .dashboard-main {
-  /* Aligns content directly beside the static 280px sidebar */
-  margin-left: 280px; 
-  flex: 1;
-
+  margin-left: 280px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .dashboard-content {
   flex: 1;
-  padding: 24px;
   overflow-y: auto;
+  background: #f8fafc;
+  padding: 32px;
 }
-
-
-.dashboard-layout {
-  display: flex;
-  min-height: 100vh;
-  background: #f5f7fb;
-}
-
-.dashboard-main {
-  margin-left: 280px; /* Leave space for the 280px fixed sidebar */
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-width: 0; /* Prevents layout distortion or horizontal scaling issues */
-}
-
-.dashboard-content {
-  flex: 1;
-  padding: 24px;
-  overflow-y: auto;
-}
-

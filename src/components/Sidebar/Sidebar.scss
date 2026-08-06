@@ -1,58 +1,62 @@
 .sidebar {
-  width: 280px;
-  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
+
+  width: 280px;
+  height: 100vh;
+
   background: #ffffff;
-  border-right: 1px solid #e5e7eb;
+
   display: flex;
   flex-direction: column;
+
   padding: 20px 16px;
-  box-sizing: border-box;
+
   overflow-y: auto;
+
+  box-sizing: border-box;
+
+  flex-shrink: 0;
+
   z-index: 1000;
+
+  border-right: 1px solid #e5e7eb;
 }
 
 /* Logo */
+
 .sidebar__logo {
   display: flex;
   align-items: center;
   gap: 15px;
   margin-bottom: 40px;
-  min-height: 50px;
 }
 
 .logo-box {
   width: 48px;
   height: 48px;
   border-radius: 14px;
-  background: linear-gradient(135deg, #0f8b8d, #157f83);
+  background: #0f8b8d;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   color: white;
   font-size: 22px;
-  font-weight: bold;
-  flex-shrink: 0;
+  font-weight: 700;
 }
 
-.logo-text {
-  white-space: nowrap;
-
-  h2 {
-    margin: 0;
-    font-size: 22px;
-    color: #0f172a;
-  }
-
-  span {
-    font-size: 12px;
-    color: #64748b;
-  }
+.logo-text h2 {
+  font-size: 22px;
+  margin: 0;
+  color: #0f172a;
 }
 
-/* Menu Layout */
+.logo-text span {
+  color: #64748b;
+  font-size: 12px;
+}
+
 .sidebar__menu {
   display: flex;
   flex-direction: column;
@@ -61,66 +65,42 @@
 
 .sidebar__bottom {
   margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding-top: 18px;
-  border-top: 1px solid #e5e7eb;
 }
 
-/* Menu Items */
 .menu-item {
   width: 100%;
   height: 52px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
+  gap: 15px;
+  padding: 0 16px;
   border: none;
   background: transparent;
-  border-radius: 14px;
   cursor: pointer;
+  transition: .2s;
   color: #475569;
-  transition: background 0.25s, color 0.25s;
-  padding: 0 16px;
-  text-align: left;
-  gap: 15px;
-
-  svg {
-    flex-shrink: 0;
-  }
-
-  &:hover {
-    background: #eef8f8;
-    color: #0f8b8d;
-  }
-
-  &.active {
-    background: #0f8b8d;
-    color: white;
-    box-shadow: 0 10px 25px rgba(15, 139, 141, 0.25);
-  }
 }
 
-/* Dropdown Alignment */
-.dropdown {
-  display: flex;
-  flex-direction: column;
+.menu-item:hover {
+  background: #eef8f8;
+  color: #0f8b8d;
 }
 
-.dropdown-title {
-  .industry-text {
-    flex: 1;
-  }
-
-  .dropdown-arrow {
-    margin-left: auto;
-  }
+.menu-item.active {
+  background: #0f8b8d;
+  color: white;
 }
 
-/* Submenu System */
 .submenu {
   margin-left: 24px;
-  border-left: 2px solid #e2e8f0;
   padding-left: 12px;
+  border-left: 2px solid #e2e8f0;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -133,45 +113,24 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  background: transparent;
   border: none;
+  background: transparent;
   cursor: pointer;
   color: #64748b;
   border-radius: 10px;
-  transition: background 0.25s, color 0.25s;
   padding-left: 10px;
-  text-align: left;
-
-  &:hover {
-    background: #eef8f8;
-    color: #0f8b8d;
-  }
 }
 
-/* Scrollbar styling for long menus */
+.submenu-item:hover {
+  background: #eef8f8;
+  color: #0f8b8d;
+}
+
 .sidebar::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
   background: #d1d5db;
   border-radius: 10px;
 }
-
-
-.sidebar {
-  width: 280px;
-  height: 100vh;
-  background: #ffffff;
-  border-right: 1px solid #e5e7eb;
-  display: flex;
-  flex-direction: column;
-  padding: 20px 16px;
-  box-sizing: border-box;
-  overflow-y: auto;
-  
-  /* Stops the layout from squeezing the sidebar width if content gets heavy */
-  flex-shrink: 0; 
-}
-
-/* ... Keep all your inner logo, menu-item, and submenu rules exactly the same ... */
