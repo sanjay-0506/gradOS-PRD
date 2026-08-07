@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./Sidebar.scss";
 
 import {
@@ -27,16 +28,10 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
 
   return (
     <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
-
       {/* ================= Logo ================= */}
-
       <div className="sidebar__header">
-
         <div className="sidebar__logo">
-
-          <div className="logo-box">
-            G
-          </div>
+          <div className="logo-box">G</div>
 
           {!collapsed && (
             <div className="logo-text">
@@ -44,7 +39,6 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
               <span>Student Success</span>
             </div>
           )}
-
         </div>
 
         <button
@@ -57,34 +51,29 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
             <PanelLeftClose size={18} />
           )}
         </button>
-
       </div>
 
       {/* ================= Navigation ================= */}
-
       <nav className="sidebar__menu">
-
-        <button
-          className="menu-item active"
+        {/* Dashboard */}
+        <NavLink
+          to="/dashboard"
+          className={({ isActive }) =>
+            `menu-item ${isActive ? "active" : ""}`
+          }
           title="Dashboard"
         >
           <LayoutDashboard size={22} />
+          {!collapsed && <span>Dashboard</span>}
+        </NavLink>
 
-          {!collapsed && (
-            <span>Dashboard</span>
-          )}
-        </button>
-
-        {/* ================= Industry ================= */}
-
+        {/* Industry Readiness */}
         <div className="dropdown">
-
           <button
             className="menu-item dropdown-title"
-            title="Industry Readiness"
             onClick={toggleIndustry}
+            title="Industry Readiness"
           >
-
             <ChartNoAxesCombined size={22} />
 
             {!collapsed && (
@@ -101,96 +90,90 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
                 />
               </>
             )}
-
           </button>
 
           {!collapsed && (
-
             <div
               className={`submenu-wrapper ${
                 industryOpen ? "open" : ""
               }`}
             >
-
               <div className="submenu">
-
-                <button
-                  className="submenu-item active"
+                <NavLink
+                  to="/industry-readiness"
+                  className={({ isActive }) =>
+                    `submenu-item ${isActive ? "active" : ""}`
+                  }
                 >
                   <BookOpen size={18} />
                   <span>Domain</span>
-                </button>
+                </NavLink>
 
-                <button
-                  className="submenu-item"
+                <NavLink
+                  to="/communication"
+                  className={({ isActive }) =>
+                    `submenu-item ${isActive ? "active" : ""}`
+                  }
                 >
                   <MessagesSquare size={18} />
                   <span>Communication</span>
-                </button>
+                </NavLink>
 
-                <button
-                  className="submenu-item"
+                <NavLink
+                  to="/innovation"
+                  className={({ isActive }) =>
+                    `submenu-item ${isActive ? "active" : ""}`
+                  }
                 >
                   <Lightbulb size={18} />
                   <span>Innovation</span>
-                </button>
+                </NavLink>
 
-                <button
-                  className="submenu-item"
+                <NavLink
+                  to="/cognitive"
+                  className={({ isActive }) =>
+                    `submenu-item ${isActive ? "active" : ""}`
+                  }
                 >
                   <BrainCircuit size={18} />
                   <span>Cognitive</span>
-                </button>
-
+                </NavLink>
               </div>
-
             </div>
-
           )}
-
         </div>
 
-        <button
-          className="menu-item"
+        {/* Learning Hub */}
+        <NavLink
+          to="/learning-hub"
+          className={({ isActive }) =>
+            `menu-item ${isActive ? "active" : ""}`
+          }
           title="Learning Hub"
         >
           <GraduationCap size={22} />
-
-          {!collapsed && (
-            <span>Learning Hub</span>
-          )}
-        </button>
-
+          {!collapsed && <span>Learning Hub</span>}
+        </NavLink>
       </nav>
 
       {/* ================= Bottom ================= */}
-
       <div className="sidebar__bottom">
-
-        <button
-          className="menu-item"
+        <NavLink
+          to="/settings"
+          className={({ isActive }) =>
+            `menu-item ${isActive ? "active" : ""}`
+          }
           title="Settings"
         >
           <Settings size={22} />
+          {!collapsed && <span>Settings</span>}
+        </NavLink>
 
-          {!collapsed && (
-            <span>Settings</span>
-          )}
-        </button>
-
-        <button
-          className="menu-item"
-          title="Help & Support"
-        >
+        <button className="menu-item" title="Help & Support">
           <LifeBuoy size={22} />
-
-          {!collapsed && (
-            <span>Help & Support</span>
-          )}
+          {!collapsed && <span>Help & Support</span>}
         </button>
-
       </div>
-
     </aside>
   );
 };
