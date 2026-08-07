@@ -1,10 +1,10 @@
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
 
 import "./DashboardLayout.scss";
 
 import Sidebar from "../components/Sidebar/Sidebar";
 import Topbar from "../components/Topbar/Topbar";
-import Dashboard from "../pages/Dashboard/Dashboard";
 
 const DashboardLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -24,7 +24,7 @@ const DashboardLayout = () => {
         <Topbar />
 
         <main className="dashboard-content">
-          <Dashboard />
+          <Outlet />
         </main>
       </div>
     </div>
