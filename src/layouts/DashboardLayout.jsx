@@ -11,11 +11,13 @@ const DashboardLayout = () => {
 
   return (
     <div className="dashboard-layout">
+      {/* Sidebar */}
       <Sidebar
         collapsed={collapsed}
         setCollapsed={setCollapsed}
       />
 
+      {/* Main Content */}
       <div
         className={`dashboard-main ${
           collapsed ? "collapsed" : ""

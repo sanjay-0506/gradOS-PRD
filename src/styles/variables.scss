@@ -1,0 +1,157 @@
+// ============================================
+// COLOR SYSTEM
+// ============================================
+
+// Primary Colors
+$primary: #0D9488;
+$primary-hover: #0F766E;
+$primary-light: rgba(13, 148, 136, 0.12);
+$primary-gradient: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+
+// Secondary Colors
+$secondary: #475569;
+$secondary-hover: #334155;
+$secondary-light: rgba(71, 85, 105, 0.12);
+
+// Tertiary Colors
+$tertiary: #C36D48;
+$tertiary-light: rgba(195, 109, 72, 0.12);
+
+// Status Colors
+$success: #10B981;
+$success-light: rgba(16, 185, 129, 0.12);
+
+$warning: #F59E0B;
+$warning-light: rgba(245, 158, 11, 0.12);
+
+$error: #EF4444;
+$error-light: rgba(239, 68, 68, 0.12);
+
+// Neutral Colors
+$neutral: #737877;
+$neutral-light: #E8EAE9;
+$neutral-lighter: #F5F6F6;
+
+// Background
+$bg-app: #F8FAFC;
+$bg-card: #FFFFFF;
+
+// Text
+$text-primary: #0F172A;
+$text-secondary: #475569;
+$text-muted: #94A3B8;
+
+// Shadows
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 30px rgba(0, 0, 0, 0.12);
+
+// Border Radius
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 16px;
+$radius-xl: 24px;
+$radius-full: 9999px;
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-2xl: 48px;
+$spacing-3xl: 64px;
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-base: 250ms ease;
+$transition-slow: 350ms ease;
+
+// Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-wide: 1280px;
+
+// ============================================
+// CSS VARIABLES EXPORT
+// ============================================
+
+:root {
+  // Colors
+  --primary: #{$primary};
+  --primary-hover: #{$primary-hover};
+  --primary-light: #{$primary-light};
+  --primary-gradient: #{$primary-gradient};
+  
+  --secondary: #{$secondary};
+  --secondary-hover: #{$secondary-hover};
+  --secondary-light: #{$secondary-light};
+  
+  --tertiary: #{$tertiary};
+  --tertiary-light: #{$tertiary-light};
+  
+  --success: #{$success};
+  --success-light: #{$success-light};
+  
+  --warning: #{$warning};
+  --warning-light: #{$warning-light};
+  
+  --error: #{$error};
+  --error-light: #{$error-light};
+  
+  --neutral: #{$neutral};
+  --neutral-light: #{$neutral-light};
+  --neutral-lighter: #{$neutral-lighter};
+  
+  // Background
+  --bg-app: #{$bg-app};
+  --bg-card: #{$bg-card};
+  
+  // Text
+  --text-primary: #{$text-primary};
+  --text-secondary: #{$text-secondary};
+  --text-muted: #{$text-muted};
+  
+  // Shadows
+  --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg};
+  --shadow-xl: #{$shadow-xl};
+  
+  // Border Radius
+  --radius-sm: #{$radius-sm};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+  --radius-xl: #{$radius-xl};
+  --radius-full: #{$radius-full};
+  
+  // Spacing
+  --spacing-xs: #{$spacing-xs};
+  --spacing-sm: #{$spacing-sm};
+  --spacing-md: #{$spacing-md};
+  --spacing-lg: #{$spacing-lg};
+  --spacing-xl: #{$spacing-xl};
+  --spacing-2xl: #{$spacing-2xl};
+  --spacing-3xl: #{$spacing-3xl};
+  
+  // Transitions
+  --transition-fast: #{$transition-fast};
+  --transition-base: #{$transition-base};
+  --transition-slow: #{$transition-slow};
+}
+
+// ============================================
+// JS EXPORTS (for use in JS files)
+// ============================================
+
+:export {
+  primary: $primary;
+  secondary: $secondary;
+  tertiary: $tertiary;
+  success: $success;
+  warning: $warning;
+  error: $error;
+  neutral: $neutral;
+}

@@ -1,0 +1,306 @@
+// src/pages/LearningHub/components/CourseCard.scss
+
+@use '../../../styles/variables' as *;
+
+.course-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--neutral-light);
+  transition: all var(--transition-smooth);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+  }
+
+  &__image {
+    position: relative;
+    height: 160px;
+    overflow: hidden;
+    background: var(--neutral-light);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+
+    .image-loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      
+      .spinner {
+        width: 30px;
+        height: 30px;
+        border: 3px solid var(--neutral-light);
+        border-top-color: var(--primary);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+    }
+  }
+
+  &__status {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-sm);
+    z-index: 2;
+
+    &.status--completed {
+      background: var(--success-light);
+      color: var(--success);
+    }
+
+    &.status--progress {
+      background: var(--tertiary-light);
+      color: var(--tertiary);
+    }
+
+    &.status--not-started {
+      background: var(--neutral-light);
+      color: var(--neutral);
+    }
+  }
+
+  &__tags {
+    position: absolute;
+    bottom: var(--spacing-sm);
+    left: var(--spacing-sm);
+    display: flex;
+    gap: var(--spacing-xs);
+    z-index: 2;
+  }
+
+  &__tag {
+    padding: 2px 10px;
+    border-radius: var(--radius-full);
+    font-size: 0.65rem;
+    font-weight: 500;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    backdrop-filter: blur(4px);
+  }
+
+  &__content {
+    padding: var(--spacing-md);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__category {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    background: var(--primary-light);
+    padding: 2px 10px;
+    border-radius: var(--radius-full);
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+
+    .star-icon {
+      color: #F59E0B;
+      fill: #F59E0B;
+    }
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+    /* Line clamp for text truncation */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-clamp: 2; /* Standard property for future compatibility */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 2.6rem; /* Fallback for browsers that don't support line-clamp */
+    
+    /* Hide the fallback for browsers that support line-clamp */
+    @supports (line-clamp: 2) or (-webkit-line-clamp: 2) {
+      min-height: auto;
+    }
+  }
+
+  &__description {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    /* Line clamp for text truncation */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-clamp: 2; /* Standard property for future compatibility */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    min-height: 2.6rem; /* Fallback for browsers that don't support line-clamp */
+    
+    /* Hide the fallback for browsers that support line-clamp */
+    @supports (line-clamp: 2) or (-webkit-line-clamp: 2) {
+      min-height: auto;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    gap: var(--spacing-md);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    padding: var(--spacing-xs) 0;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+  }
+
+  &__instructor {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) 0;
+
+    .instructor-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-full);
+      background: var(--primary-gradient);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .instructor-name {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+  }
+
+  &__progress {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) 0;
+
+    .progress-bar {
+      flex: 1;
+      height: 6px;
+      background: var(--neutral-light);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: var(--radius-full);
+      transition: width 0.6s ease;
+    }
+
+    .progress-text {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      min-width: 36px;
+      text-align: right;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all var(--transition-bounce);
+    margin-top: auto;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+    }
+
+    &:active {
+      transform: scale(0.97);
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .course-card {
+    &__image {
+      height: 140px;
+    }
+
+    &__title {
+      font-size: 0.95rem;
+      /* Update fallback min-height for smaller font size */
+      min-height: 2.47rem; /* 0.95rem * 1.3 * 2 lines */
+      
+      @supports (line-clamp: 2) or (-webkit-line-clamp: 2) {
+        min-height: auto;
+      }
+    }
+
+    &__description {
+      min-height: 2.55rem; /* 0.85rem * 1.5 * 2 lines */
+      
+      @supports (line-clamp: 2) or (-webkit-line-clamp: 2) {
+        min-height: auto;
+      }
+    }
+  }
+}

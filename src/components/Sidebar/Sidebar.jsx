@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-
+import { useNavigate, useLocation } from "react-router-dom";
 import "./Sidebar.scss";
 
 import {
@@ -40,16 +39,10 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
 
   return (
     <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
-
       {/* Header */}
-
       <div className="sidebar__header">
-
         <div className="sidebar__logo">
-
-          <div className="logo-box">
-            G
-          </div>
+          <div className="logo-box">G</div>
 
           {!collapsed && (
             <div className="logo-text">
@@ -57,7 +50,6 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
               <span>Student Success</span>
             </div>
           )}
-
         </div>
 
         <button
@@ -70,33 +62,22 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
             <PanelLeftClose size={18} />
           )}
         </button>
-
       </div>
 
       {/* Navigation */}
-
       <nav className="sidebar__menu">
-
         {/* Dashboard */}
-
         <button
-          className={`menu-item ${
-            isActive("/") ? "active" : ""
-          }`}
-          onClick={() => go("/")}
+          className={`menu-item ${isActive("/dashboard") ? "active" : ""}`}
+          onClick={() => go("/dashboard")}
           title="Dashboard"
         >
           <LayoutDashboard size={22} />
-
-          {!collapsed && (
-            <span>Dashboard</span>
-          )}
+          {!collapsed && <span>Dashboard</span>}
         </button>
 
         {/* Industry */}
-
         <div className="dropdown">
-
           <button
             className={`menu-item dropdown-title ${
               isIndustry ? "active" : ""
@@ -124,24 +105,18 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
                 />
               </>
             )}
-
           </button>
 
           {!collapsed && (
-
             <div
               className={`submenu-wrapper ${
                 industryOpen ? "open" : ""
               }`}
             >
-
               <div className="submenu">
-
                 <button
                   className={`submenu-item ${
-                    isActive("/domain")
-                      ? "active"
-                      : ""
+                    isActive("/domain") ? "active" : ""
                   }`}
                   onClick={() => go("/domain")}
                 >
@@ -155,9 +130,7 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
                       ? "active"
                       : ""
                   }`}
-                  onClick={() =>
-                    go("/communication")
-                  }
+                  onClick={() => go("/communication")}
                 >
                   <MessagesSquare size={18} />
                   <span>Communication</span>
@@ -169,9 +142,7 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
                       ? "active"
                       : ""
                   }`}
-                  onClick={() =>
-                    go("/innovation")
-                  }
+                  onClick={() => go("/innovation")}
                 >
                   <Lightbulb size={18} />
                   <span>Innovation</span>
@@ -183,75 +154,47 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
                       ? "active"
                       : ""
                   }`}
-                  onClick={() =>
-                    go("/cognitive")
-                  }
+                  onClick={() => go("/cognitive")}
                 >
                   <BrainCircuit size={18} />
                   <span>Cognitive</span>
                 </button>
-
               </div>
-
             </div>
-
           )}
-
         </div>
 
         {/* Learning Hub */}
-
         <button
           className={`menu-item ${
-            isActive("/learning")
-              ? "active"
-              : ""
+            isActive("/learning") ? "active" : ""
           }`}
           onClick={() => go("/learning")}
           title="Learning Hub"
         >
           <GraduationCap size={22} />
-
-          {!collapsed && (
-            <span>Learning Hub</span>
-          )}
+          {!collapsed && <span>Learning Hub</span>}
         </button>
-
       </nav>
 
       {/* Bottom */}
-
       <div className="sidebar__bottom">
-
         <button
           className={`menu-item ${
-            isActive("/settings")
-              ? "active"
-              : ""
+            isActive("/settings") ? "active" : ""
           }`}
           onClick={() => go("/settings")}
           title="Settings"
         >
           <Settings size={22} />
-
-          {!collapsed && (
-            <span>Settings</span>
-          )}
+          {!collapsed && <span>Settings</span>}
         </button>
 
-        <button
-          className="menu-item"
-          title="Help & Support"
-        >
+        <button className="menu-item" title="Help & Support">
           <LifeBuoy size={22} />
-
-          {!collapsed && (
-            <span>Help & Support</span>
-          )}
+          {!collapsed && <span>Help & Support</span>}
         </button>
-
       </div>
-
     </aside>
   );
 };
